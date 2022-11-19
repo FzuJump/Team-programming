@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+</head>
+
+<body>
+
+    <p>账号：<input type="text" id="user"></p>
+    <p>密码：<input type="text" id="pass"></p>
+    <button id="login">登录</button>
+    <button id="add">注册</button>
+
+    <script src="ajax.js"></script>
+    <!-- 
+    接口文档
+method: get
+url: './data/user.php'
+参数：
+    type = login  登录
+           add    注册 
+    user = 用户名
+    pass = 用户密码
+返回：
+    {err:0,msg:'登录成功'} 
+-->
+    <script>
+        var login = document.querySelector('#login');
+        var add = document.querySelector('#add');
+        var user = document.querySelector('#user');
+        var pass = document.querySelector('#pass');
+
+        login.onclick = function() {
+            ajax({
+                type: 'get',
+                url: './data/user.php',
+                data: {
+                    type: 'login',
+                    user: user.value,
+                    pass: pass.value
+                },
+                success: function(data) {
+                    var json = JSON.parse(data);
+                    if (json.err == 0) {
+                        alert(json.msg);
+                    }
+                }
+            });
+        }
+
+        add.onclick = function() {
+            ajax({
+                type: 'get',
+                url: './data/user.php',
+                data: {
+                    type: 'add',
+                    user: user.value,
+                    pass: pass.value
+                },
+                success: function(data) {
+                    var json = JSON.parse(data);
+                    if (json.err == 0) {
+                        alert(json.msg);
+                    }
+                }
+            });
+        }
+    </script>
