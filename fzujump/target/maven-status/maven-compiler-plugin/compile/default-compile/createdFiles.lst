@@ -1,0 +1,7 @@
+com\Ambition\controller\IndexController.class
+com\Ambition\utils\ResultData.class
+com\Ambition\service\FzuJumpService.class
+com\Ambition\service\FzuJumpServiceImpl.class
+com\Ambition\controller\FzuJumpController.class
+com\Ambition\config\CorsConfig.class
+com\Ambition\FzujumpApplication.class
