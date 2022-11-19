@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .biaoti {
+            font-size: 30px;
+            background-color: #f5f5f5;
+            text-align: center;
+            font-family: "Microsoft Yahei";
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            margin: 10px;
+            font-weight: 300;
+        }
+
+        .mainbody {
+            height: 200px;
+            background-color: #f5f5f5;
+
+        }
+
+        img {
+            position: absolute;
+            height: 70px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="biaoti">
+        <h3>人民币数字大写在线转换工具</h3>
+    </div>
+    <div class="mainbody">
+
+    </div>
+    <img src="money.png">
+    <script>
+        var pic = document.querySelector('img');
+        document.addEventListener('mousemove', function (e) {
+            // console.log('woce');
+            pic.style.left = e.pageX - 35 + 'px';
+            pic.style.top = e.pageY - 35 + 'px';
+        })
+    </script>
+</body>
+
+
+</html>
