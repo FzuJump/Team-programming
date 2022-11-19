@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .back{
+            width: 900px;
+            height: 500px;
+            border: #333333 1px solid;
+            margin: 0 auto;
+
+        }
+        div .in{
+            margin: 0 auto;
+            width: 400px;
+            height: 25px;
+        }
+        .back .inner{
+            margin: 50px auto;
+            width: 600px;
+            height: 200px;
+            border: #333333 1px solid;
+        }
+        .head{
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            float:right;
+        }
+        h1{
+            float: left;
+        }
+        .clearfix:after{
+            content:"";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        .clearfix{
+            *zoom:1;
+        }
+    </style>
+</head>
+<body>
+    <div class="back">
+<!--        <div class="clear">        <div><h1>数字大小写转换工具</h1></div>-->
+<!--        </div>-->
+        <div><button type="submit" class="head">头像</button></div>
+
+        <span class="clearfix"></span>
+        <div class="inner">
+            输入：
+            <input
+                    class="in"
+                    type="text"
+                    placeholder="请输入"
+                    model="text"
+                    maxlength="10"
+                    show-word-limit
+            >
+            <button type="submit" >确认</button>
+            </input>
+            <div style="margin: 20px 0;" ></div>
+            输出：
+            <input
+                    class="in"
+                    type="textarea"
+                    placeholder="转换结果"
+                    v-model="textarea"
+                    maxlength="30"
+                    show-word-limit
+            >
+            <button type="submit" >复制</button>
+            </input>
+        </div>
+
+    </div>
+</body>
+<script>
+    export default {
+        data() {
+            return {
+                text: '',
+                textarea: ''
+            }
+        }
+    }
+</script>
+</html>
