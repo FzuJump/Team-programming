@@ -1,26 +1,18 @@
 import java.math.*;
 public class Chinese_Into_Num {
-    /**
-     * 大写金额转数字
-     *
-     */
     public static String ChineseConvertToNumber(String chineseAmount) {
         if (chineseAmount == null || chineseAmount.length() <= 0 || chineseAmount == "") {
             return null;
         }
-        //移除计算干扰文字
+
         chineseAmount = chineseAmount
                 .replace("元", "")
                 .replace("整", "");
 
-        // 字符切割
         char[] wordCharArray = chineseAmount.toCharArray();
 
-        //最终要返回的数字金额
         BigDecimal numberAmount = BigDecimal.ZERO;
 
-        //金额位标志量
-        // 表示个位不为0
         boolean yuan = false;
         //表示有十位
         boolean shi = false;
@@ -32,8 +24,6 @@ public class Chinese_Into_Num {
         boolean wan = false;
         //表示有亿位
         boolean yi = false;
-
-        //从低位到高位计算
         for (int i = (wordCharArray.length - 1); i >= 0; i--) {
             //当前位金额值
             BigDecimal currentPlaceAmount = BigDecimal.ZERO;
@@ -71,14 +61,12 @@ public class Chinese_Into_Num {
                 t = ConvertNameToSmall(wordCharArray[i]);
             }
             currentPlaceAmount = new BigDecimal(t);
-            //每万位处理
             if (yi) {
                 currentPlaceAmount = currentPlaceAmount.multiply(new BigDecimal(100000000));
             } else if (wan) {
                 currentPlaceAmount = currentPlaceAmount.multiply(new BigDecimal(10000));
             }
             numberAmount = numberAmount.add(currentPlaceAmount);
-            // 重置状态
             shi = false;
             bai = false;
             qian = false;
@@ -87,13 +75,7 @@ public class Chinese_Into_Num {
         return numberAmount.setScale(0,BigDecimal.ROUND_HALF_UP).toString();
     }
 
-    /**
-     * 转换中文数字为阿拉伯数字
-     *
-     * @param chinese
-     * @return
-     * @throws Exception
-     */
+
     private static int ConvertNameToSmall(char chinese) {
         int number = 0;
         String s = String.valueOf(chinese);
@@ -130,10 +112,6 @@ public class Chinese_Into_Num {
                 break;
         }
         return number;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(ChineseConvertToNumber("abc"));
     }
 
 }
