@@ -11,13 +11,14 @@
             display: flex;
             position: relative;
             height: 400px;
+			justify-content: center;
+    		align-items: center;
         }
 
         .Error {
-            color: aquamarine;
+            color: #24DA85;
             height: 200px;
             width: 400px;
-            position: absolute;
             left: 50%;
             top: 50%;
             border-style: solid;
@@ -25,7 +26,7 @@
             border-color: gray;
             text-align: center;
             line-height: 160px;
-            font-size: 16px;
+            font-size: 32px;
             display: flex;
             flex-direction: column;
             border-radius: 15px;
@@ -40,8 +41,8 @@
             text-align: center;
             text-decoration: none;
             outline: none;
-            color: #fff;
-            background-color: #66a1681b;
+            color: white;
+            background-color: #CA6869;
             border: none;
             border-radius: 15px;
             display: block;
@@ -57,14 +58,16 @@
             background-color: #3e8e41;
             transform: translateY(4px);
         }
+    .center {
+}
     </style>
 </head>
 
 <body>
     <div class="parent">
         <div class="Error">
-            输入格式错误
-            <button class="button">返回</button>
+          <strong> 输入格式错误 </strong>
+            <button class="button" onClick="location.href='unionProgram.html'">返回</button>
         </div>
     </div>
 
