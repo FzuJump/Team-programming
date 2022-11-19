@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .Title_History {
+        font-size: 30px;
+        color: blue;
+        margin-bottom: 16px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid gray;
+    }
+
+    .List_Box {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .List_Box ul {
+        list-style-type: none;
+    }
+
+    .Parent_box {
+        height: 800px;
+        position: relative;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .Box {
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+        left: 50%;
+        top: 50%;
+    }
+
+    .List_Box div {
+        margin-right: 50px;
+        width: 170px;
+    }
+
+    .List_Box li {
+        margin-bottom: 15px;
+    }
+</style>
+
+<body>
+    <div class="Parent_box">
+        <div class="Box">
+            <div class="Title_History">历史记录</div>
+            <div class="List_Box">
+                <div>
+                    <ul>
+                        <li>2020-10-20</li>
+                        <li>2021-10-29</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>12345</li>
+                        <li>壹</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>一二三四五</li>
+                        <li>1</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
