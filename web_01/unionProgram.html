@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <style>
         .biaoti {
             font-size: 30px;
@@ -16,12 +17,12 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
-
+        
         h3 {
             margin: 10px;
             font-weight: 300;
         }
-
+        
         .mainbody {
             height: 150px;
             background-color: #f3f3f3;
@@ -31,26 +32,25 @@
             padding-left: 460px;
             padding-top: 50px;
         }
-
+        
         img {
             position: absolute;
             height: 40px;
         }
-
+        
         .back {
             width: 900px;
             height: 500px;
             border: #333333 1px solid;
             margin: 0 auto;
-
         }
-
+        
         div .in {
             margin: 0 auto;
             width: 400px;
             height: 25px;
         }
-
+        
         .mainbody.inner {
             margin: 50px auto;
             width: 600px;
@@ -58,18 +58,18 @@
             border: #333333 1px solid;
             /* display: inline-block; */
         }
-
+        
         .head {
             height: 100px;
             width: 100px;
             border-radius: 50px;
             float: right;
         }
-
+        
         h1 {
             float: left;
         }
-
+        
         .clearfix:after {
             content: "";
             display: block;
@@ -77,15 +77,15 @@
             clear: both;
             visibility: hidden;
         }
-
+        
         .clearfix {
             *zoom: 1;
         }
-
+        
         body {
             background-image: url(background.png);
         }
-
+        
         .confirm,
         .output {
             width: 50px;
@@ -105,35 +105,60 @@
         <span class="clearfix"></span> -->
         <div class="inner">
             输入：
-            <input class="in" type="text" placeholder="请输入" model="text" maxlength="10" show-word-limit>
+            <input class="in" type="text" placeholder="请输入" model="text" show-word-limit>
             <button type="submit" class="confirm">确认</button>
             </input>
             <div style="margin: 20px 0;"></div>
-            输出：
-            <input class="in" type="textarea" placeholder="转换结果" v-model="textarea" maxlength="30" show-word-limit>
-            <button type="submit" class="output">复制</button>
+            <!-- 输出：
+            <input class="in" id="out" type="textarea" placeholder="转换结果" v-model="textarea" maxlength="30" show-word-limit>
+            <button type="submit" class="output">复制</button> -->
+            <!-- <ul>
+                <li>
+
+                </li>
+            </ul>  -->
             </input>
         </div>
 
+
     </div>
     <img src="money.png">
+
     <script>
         var pic = document.querySelector('img');
-        document.addEventListener('mousemove', function (e) {
-            // console.log('woce');
-            // pic.style.left = e.pageX - 35 + 'px';
-            // pic.style.top = e.pageY - 35 + 'px';
-            pic.style.left = e.pageX + 5 + 'px';
-            pic.style.top = e.pageY + 5 + 'px';
-        })
-        // export default {
-        //     data() {
-        //         return {
-        //             text: '',
-        //             textarea: ''
-        //         }
-        //     }
-        // }
+        document.addEventListener('mousemove', function(e) {
+                // console.log('woce');
+                // pic.style.left = e.pageX - 35 + 'px';
+                // pic.style.top = e.pageY - 35 + 'px';
+                pic.style.left = e.pageX + 5 + 'px';
+                pic.style.top = e.pageY + 5 + 'px';
+            })
+            // export default {
+            //     data() {
+            //         return {
+            //             text: '',
+            //             textarea: ''
+            //         }
+            //     }
+            // }
+        var text = document.querySelector(".in");
+        var textout = document.querySelector("#out");
+
+        console.log(text.value)
+        var login = document.querySelector('.confirm');
+        // var login = document.querySelector('.output');
+        login.onclick = function() {
+            $.ajax({
+                type: "get",
+                url: 'http://192.168.43.68:8082/conversion',
+                data: {
+                    number: text.value
+                },
+                success: function(data) {
+                    alert(data.data);
+                }
+            })
+        }
     </script>
 </body>
 
